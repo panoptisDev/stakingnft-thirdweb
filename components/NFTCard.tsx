@@ -6,8 +6,8 @@ interface NFTCardProps {
 }
 
 const NFTCard: FC<NFTCardProps> = ({tokenId}) => {
-    const bonsaiAddress = "0x027E551902EF89c8Ccb4DC2C71b2aA6E7B6dbB96";
-    const stakingAddress = "0x2Aa7A57FB7D668401BE306e814cc14850Be6c969";
+    const bonsaiAddress = "0x51f7d21aa7B67e78700eFB0503c46BAF2f3A93B9";
+    const stakingAddress = "0x4B0FBC5D574941D1C69092f1BeF6B1D0a6515Fb4";
   
     const { contract: bonsaiContract } = useContract(bonsaiAddress, "nft-drop");
     const { contract: stakingContract} = useContract(stakingAddress);
