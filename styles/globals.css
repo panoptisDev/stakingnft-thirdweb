@@ -19,6 +19,12 @@ html {
   color-scheme: dark;
 }
 body {
-  color: #e7e8e8;
-  background: #9999f6;
+  color: #1e1e1e;
+  background: url(https://iili.io/H7WdG8Q.jpg);
 }
+
+#logo{ 
+	position:fixed; 
+	top:0; 
+	left:0; 
+} 

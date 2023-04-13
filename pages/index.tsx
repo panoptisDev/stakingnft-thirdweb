@@ -8,8 +8,8 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   const address = useAddress();
 
-  const bonsaiAddress = "0x51f7d21aa7B67e78700eFB0503c46BAF2f3A93B9";
-  const stakingAddress = "0x4B0FBC5D574941D1C69092f1BeF6B1D0a6515Fb4";
+  const bonsaiAddress = "0x56f41ff18a7E45ee4E5faf3f61114F80b8926885"; //shrimp nft
+  const stakingAddress = "0x5C35579DE9edEEf0806653b0053151cB9d6744Ad"; // staking contract
 
   const { contract: bonsaiContract } = useContract(bonsaiAddress, "nft-drop");
   const { contract: stakingContract} = useContract(stakingAddress);
@@ -48,14 +48,14 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1>LitOne NFTs</h1>
+        <h1>Shrimp NFTs</h1>
         <Web3Button
         contractAddress={bonsaiAddress}
         action={(bonsaiContract) => bonsaiContract.erc721.claim(1)}
-        >Claim LitOne NFTs        
+        >Claim Shrimp NFTs        
         </Web3Button>
         <br />
-        <h1>My LitOne NFTs</h1>
+        <h1>My Shrimp NFTs</h1>
         <div>
           {myBonsaiNFTs?.map((nft) =>(
             // eslint-disable-next-line react/jsx-key
@@ -69,11 +69,11 @@ const Home: NextPage = () => {
               <Web3Button
                 contractAddress={stakingAddress}
                 action={() => stakeNFT(nft.metadata.id)}
-              >Stake Lit</Web3Button>
+              >Stake and recieve JELLY</Web3Button>
             </div>
           ))}
         </div>
-        <h1>Staked LitOne NFTs</h1>
+        <h1>Staked Shrimp NFTs</h1>
         <h2>Open Coming soon </h2>
         <div>
           {stakedBonsaiNFTs && stakedBonsaiNFTs[0].map((stakedNFT: BigNumber) => (
@@ -83,12 +83,12 @@ const Home: NextPage = () => {
           ))}
         </div>
         <br />
-        <h1>Claimable $LIT:</h1>
+        <h1>Claimable $JELLY:</h1>
         {!claimableRewards ? "Loading..." : ethers.utils.formatUnits(claimableRewards, 18)}
         <Web3Button
           contractAddress={stakingAddress}
           action={(stakingContract) => stakingContract.call("claimRewards")}
-        >Claim $LIT</Web3Button>
+        >Claim $JELLY</Web3Button>
       </main>
     </div>
   );
